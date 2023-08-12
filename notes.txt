@@ -1,0 +1,55 @@
+-npm install typescript --save-dev instalmos typescript en el proyecto
+
+-npx tsc --version
+
+-npx tsc --init con esto creamos el tsconfig
+
+-npx tsc --watch typescript transpila automáticamente
+
+-Datos en typescript
+
+const productPrice: number = 12;
+
+-En typescript let y const se comportan diferente, let puede inferir el tipo de dato y asignarlo, pero const no va a definir ningún tipo de dato ya que el valor no cambia, solo es un dato y eso es todo.
+
+-Si no se usa un framework, es necesario implementar una función anónima autoejecutada para evitar el choque entre variables debido a la ausencia de modulos:
+(() => {})();
+
+-Nan entra en el conjunto de number
+
+-let hex = 0xfff; así definimos un hexadecimal, si se imprime se transforma en el valor decimal correspondiente
+
+-let bin = 0b1010; igual que el anterior, pero este es un binario.
+
+-usa number en minúscula para declarar el tipo.
+
+-para declarar un booleano decimos boolean, no bool o Boolean con b mayúscula.
+
+-Con los array podemos usar la inferencia y solo se podrá almacenar aquellos datos del tipo inferido.
+Si se quiere espeficicar un array que soporta distintos tipos de datos lo hacemos como sigue:
+let mixed: (number | string | boolean | Object)[] = [];
+la palabra Object te permite almacenar objetos y arrays también.
+
+-let myDynamicVar: any; eso signifca que la variable puede ir cambiando su tipo de dato como JS usualmente lo haría.
+Tenemos el cast: const rta = (myDynamicVar as string).toLowerCase(); eso hace que myDynamicVar sea tratatdo como string de ahora en adelante.
+Tambien lo podemos hacer así:
+const otherNumber = (<number>myDynamicVar).toFixed();
+
+-let userId = string | number; también podemos declarar con any
+
+-En las funciones podemos escribir function greeting(myText: string | number) {
+    ...
+}
+
+-Para crear nuestros propios tipos en Typescript:
+type UserID = string | number | boolean;
+let userId: UserID;
+
+-Tambien podemos decirle exactamente qué datos aceptará nuestra variable:
+let size: 'S' | 'M' | 'L';
+Tambíen podemos hacerlo así:
+type Size = 'S' | 'M' | 'L';
+let size : Size;
+
+
+
